@@ -2,11 +2,13 @@
 
 pipeline {
     agent any
+    environment {
+        JONS_SECRET     = credentials('jons-secret')
+    }
     stages {
         stage('One') {
             steps {
-                echo 'My secret:'
-                echo credentials('jons-secret')
+                echo "My secret: ${JONS_SECRET}"
             }
         }
         stage('Two') {
