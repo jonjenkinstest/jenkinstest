@@ -5,7 +5,8 @@ pipeline {
     stages {
         stage('One') {
             steps {
-                echo 'Hi'
+                echo 'My secret:'
+                echo credentials('jons-secret')
             }
         }
         stage('Two') {
