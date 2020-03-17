@@ -6,7 +6,7 @@ pipeline {
         JONS_SECRET     = credentials('jons-secret')
     }
     parameters {
-        choice(name: 'Environment', choices: 'Int\nTest', description: 'Environment to deploy to')
+        choice(name: 'ENVIRONMENT', choices: 'Int\nTest', description: 'Environment to deploy to')
     }
     stages {
         stage('One') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Two') {
             steps {
-                build('test param')
+                build(ENVIRONMENT)
             }
         }
     }
